@@ -415,7 +415,8 @@ static const CGFloat kMinCursorWidth  = 50;
 
   SEL sel = @selector(textField:didAddCellAtIndex:);
   if ([self.delegate respondsToSelector:sel]) {
-    [self.delegate performSelector:sel withObject:self withObject:(id)_cellViews.count-1];
+    NSNumber *decrementedCellCount = [NSNumber numberWithInt:_cellViews.count - 1];
+    [self.delegate performSelector:sel withObject:self withObject:decrementedCellCount];
   }
 }
 

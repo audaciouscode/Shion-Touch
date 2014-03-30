@@ -422,7 +422,6 @@
 		38E627D8113ADBF400D01515 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E627D6113ADBF400D01515 /* FavoritesViewController.m */; };
 		38E627D9113ADBF400D01515 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E627D7113ADBF400D01515 /* FavoritesViewController.xib */; };
 		38E62806113ADEA600D01515 /* ApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E62805113ADEA600D01515 /* ApplicationModel.m */; };
-		38E62869113AE07300D01515 /* XML in Resources */ = {isa = PBXBuildFile; fileRef = 38E62864113AE07300D01515 /* XML */; };
 		38E6286E113AE0B300D01515 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E6286C113AE0B300D01515 /* LocationsViewController.m */; };
 		38E6286F113AE0B300D01515 /* LocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E6286D113AE0B300D01515 /* LocationsViewController.xib */; };
 		38E62895113AE35F00D01515 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E62894113AE35F00D01515 /* AsyncSocket.m */; };
@@ -2786,6 +2785,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Shion Touch" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -2814,7 +2815,6 @@
 				38E62787113AD6A900D01515 /* star.png in Resources */,
 				38E62789113AD6C300D01515 /* tools.png in Resources */,
 				38E627D9113ADBF400D01515 /* FavoritesViewController.xib in Resources */,
-				38E62869113AE07300D01515 /* XML in Resources */,
 				38E6286F113AE0B300D01515 /* LocationsViewController.xib in Resources */,
 				38E629CE113AF21900D01515 /* LocationViewController.xib in Resources */,
 				38E62A6E113B04D700D01515 /* DeviceViewController.xib in Resources */,

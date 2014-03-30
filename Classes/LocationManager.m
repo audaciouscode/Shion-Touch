@@ -129,7 +129,7 @@ static LocationManager * sharedManager = nil;
 		return;
 
 	NSString * command = [NSString stringWithFormat:@"shion:updateLatitude_longitude_forDevice(%f, %f, \"%@\")", newLocation.coordinate.latitude, 
-						  newLocation.coordinate.longitude, [UIDevice currentDevice].uniqueIdentifier, nil];
+						  newLocation.coordinate.longitude, [UIDevice currentDevice].identifierForVendor, nil];
 	
 	NSDate * toRelease = lastSend;
 	
@@ -148,7 +148,7 @@ static LocationManager * sharedManager = nil;
 		errorString = @"Permission Denied";
 	
 	NSString * command = [NSString stringWithFormat:@"shion:updateLocationError_forDevice(\"%@\", \"%@\")", errorString, 
-						  [UIDevice currentDevice].uniqueIdentifier, nil];
+						  [UIDevice currentDevice].identifierForVendor, nil];
 	
 	[[XMPPManager sharedManager] broadcastCommand:command];
 }

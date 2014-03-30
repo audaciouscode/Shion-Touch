@@ -208,11 +208,11 @@ static XMPPManager * sharedManager = nil;
 - (void) sendStatus:(NSTimer *) theTimer
 {
 	NSString * command = [NSString stringWithFormat:@"shion:updateMobileDevice_status(\"%@\", \"%@\")", 
-						  [UIDevice currentDevice].uniqueIdentifier, @"Online", nil]; 
+						  [UIDevice currentDevice].identifierForVendor, @"Online", nil]; 
 
 	if (![[LocationManager sharedManager] reportsLocation])
 		command = [NSString stringWithFormat:@"shion:updateMobileDevice_status(\"%@\", \"%@\")", 
-				   [UIDevice currentDevice].uniqueIdentifier, @"Private", nil]; 
+				   [UIDevice currentDevice].identifierForVendor, @"Private", nil]; 
 	
 	[[XMPPManager sharedManager] broadcastCommand:command];
 
@@ -239,14 +239,14 @@ static XMPPManager * sharedManager = nil;
 				UIDevice * device = [UIDevice currentDevice];
 
 				NSString * command = [NSString stringWithFormat:@"shion:updateMobileDevice_name_address_platform_model_version(\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")", 
-									  device.uniqueIdentifier, device.name, @"", @"iOS", device.model, 
+									  device.identifierForVendor, device.name, @"", @"iOS", device.model, 
 									  [NSString stringWithFormat:@"Shion Touch %@", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]],
 									  nil];
 				
 				[[XMPPManager sharedManager] broadcastCommand:command];
 
 				command = [NSString stringWithFormat:@"shion:updateMobileDevice_caller(\"%@\", \"%@\")", 
-						   device.uniqueIdentifier, @"Unavailable", nil]; 
+						   device.identifierForVendor, @"Unavailable", nil]; 
 
 				[[XMPPManager sharedManager] broadcastCommand:command];
 
@@ -491,7 +491,7 @@ static XMPPManager * sharedManager = nil;
 	{
 		NSString * identifier = [[message attributeForName:@"id"] stringValue];
 
-		if ([identifier isEqual:[UIDevice currentDevice].uniqueIdentifier])
+		if ([identifier isEqual:[UIDevice currentDevice].identifierForVendor])
 			[[SoundManager sharedManager] play:@"beacon"];
 	}
 	else if ([[message name] isEqual:@"photos"])
@@ -593,7 +593,7 @@ static XMPPManager * sharedManager = nil;
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
-	Device * device = [Device dictionaryWithObject:[UIDevice currentDevice].uniqueIdentifier forKey:DEVICE_IDENTIFIER];
+	Device * device = [Device dictionaryWithObject:[UIDevice currentDevice].identifierForVendor forKey:DEVICE_IDENTIFIER];
 	
 	XMPPIQ * iq = [ScriptMessage iqForDevice:device script:command];
 
@@ -619,7 +619,7 @@ static XMPPManager * sharedManager = nil;
 - (void) sendCommand:(NSString *) command forDevice:(Device *) device
 {
 	if (device == nil)
-		device = [Device dictionaryWithObject:[UIDevice currentDevice].uniqueIdentifier forKey:DEVICE_IDENTIFIER];
+		device = [Device dictionaryWithObject:[UIDevice currentDevice].identifierForVendor forKey:DEVICE_IDENTIFIER];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
